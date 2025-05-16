@@ -269,3 +269,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Animación de números en la sección About
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const speed = 200;
+    
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-count'));
+        const count = parseInt(stat.innerText);
+        const increment = target / speed;
+        
+        if(count < target) {
+            stat.innerText = Math.floor(count + increment);
+            setTimeout(animateStats, 1);
+        } else {
+            stat.innerText = target;
+        }
+    });
+}
+
+// Lanzar la animación cuando la sección sea visible
+const aboutSection = document.querySelector('.about');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            animateStats();
+            observer.unobserve(entry.target);
+        }
+    });
+}, {threshold: 0.5});
+
+observer.observe(aboutSection);
