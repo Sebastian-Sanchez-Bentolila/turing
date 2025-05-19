@@ -129,13 +129,6 @@ window.onclick = function(event) {
     }
 }
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-    this.reset();
-});
-
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

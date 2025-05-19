@@ -302,21 +302,31 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Teléfono">
-                        <select required>
+                    <form 
+                        action="https://formsubmit.co/sebastiansb3004@gmail.com" 
+                        method="POST"
+                    >
+                        <!-- Campos ocultos para configuración -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="javascript:alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');"> 
+                        <input type="hidden" name="_template" value="table"> 
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde Turing Bots - Tienda Ecommerce">
+
+                        <!-- Campos del formulario -->
+                        <input type="text" name="Nombre" placeholder="Nombre completo" required>
+                        <input type="email" name="Email" placeholder="Email" required>
+                        <input type="tel" name="Teléfono" placeholder="Teléfono">
+                        <select name="Servicio" required>
                             <option value="" disabled selected>Selecciona un servicio</option>
-                            <option value="whatsapp-ia">Asistente Virtual para WhatsApp</option>
-                            <option value="whatsapp">ChatBot para WhatsApp</option>
-                            <option value="social">Bot para Redes Sociales</option>
-                            <option value="web">Bot para Página Web</option>
-                            <option value="other">Otro servicio</option>
+                            <option value="Asistente Virtual WhatsApp">Asistente Virtual para WhatsApp</option>
+                            <option value="ChatBot WhatsApp">ChatBot para WhatsApp</option>
+                            <option value="Bot Redes Sociales">Bot para Redes Sociales</option>
+                            <option value="Bot para Página/Tienda Web">Bot para Página Web</option>
+                            <option value="Otros servicios">Otro servicio</option>
                         </select>
-                        <textarea placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                        <textarea name="Mensaje" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
                         <button type="submit">Enviar Mensaje</button>
                     </form>
                 </div>
