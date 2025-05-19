@@ -311,14 +311,14 @@
 
                         <!-- Campos ocultos para configuración -->
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="gracias.html"> 
+                        <input type="hidden" name="_next" value="https://turingbots.netlify.app/gracias.html"> 
                         <input type="hidden" name="_template" value="table"> 
                         <input type="hidden" name="_subject" value="Nuevo mensaje desde Turing Bots - Tienda Ecommerce">
 
                         <!-- Campos del formulario -->
                         <input type="text" name="Nombre" placeholder="Nombre completo" required>
                         <input type="email" name="Email" placeholder="Email" required>
-                        <input type="tel" name="Teléfono" placeholder="Teléfono">
+                        <input type="tel" name="Teléfono" placeholder="Teléfono" pattern="[0-9]+" title="Solo números, sin espacios ni caracteres especiales" required>
                         <select name="Servicio" required>
                             <option value="" disabled selected>Selecciona un servicio</option>
                             <option value="Asistente Virtual WhatsApp">Asistente Virtual para WhatsApp</option>
