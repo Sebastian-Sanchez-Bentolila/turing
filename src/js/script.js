@@ -294,3 +294,51 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.5});
 
 observer.observe(aboutSection);
+
+// Menú móvil
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navOverlay = document.createElement('div');
+    
+    navOverlay.className = 'nav-overlay';
+    document.body.appendChild(navOverlay);
+    
+    menuToggle.addEventListener('click', function() {
+        mainNav.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+        
+        // Cambiar icono
+        const icon = this.querySelector('i');
+        if (mainNav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Cerrar menú al hacer clic en overlay
+    navOverlay.addEventListener('click', function() {
+        mainNav.classList.remove('active');
+        this.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+    });
+});
