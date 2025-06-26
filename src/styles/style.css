@@ -1,6 +1,3 @@
-/* =============================================
-   VARIABLES GLOBALES
-   ============================================= */
 :root {
     --jet-black: #1A1A1A;
     --gold: #D4AF37;
@@ -9,9 +6,6 @@
     --pure-white: #FFFFFF;
 }
 
-/* =============================================
-   RESET Y ESTILOS BASE
-   ============================================= */
 * {
     margin: 0;
     padding: 0;
@@ -37,28 +31,23 @@ h1, h2, h3, h4 {
     padding: 20px 0;
 }
 
-/* =============================================
-   ESTILOS DEL HEADER Y NAVEGACIÓN
-   ============================================= */
+/* Estilos del header */
 header {
-    background-color: rgba(26, 26, 26, 0.95);
-    padding: 15px 0;
+    background-color: rgba(26, 26, 26, 0.9);
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--gold);
-    backdrop-filter: blur(5px);
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
-/* Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -76,80 +65,48 @@ header {
     color: var(--gold);
 }
 
-/* Navegación principal */
-.main-nav ul {
+nav ul {
     display: flex;
     list-style: none;
 }
 
-.main-nav ul li {
+nav ul li {
     margin-left: 20px;
 }
 
-.main-nav ul li a {
+nav ul li a {
     color: var(--pure-white);
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
     transition: color 0.3s;
-    position: relative;
-    padding: 5px 0;
 }
 
-.main-nav ul li a:hover {
+nav ul li a:hover {
     color: var(--gold);
 }
 
-/* Efecto subrayado en hover */
-.main-nav ul li a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--gold);
-    transition: width 0.3s;
-}
-
-.main-nav ul li a:hover:after {
-    width: 100%;
-}
-
-/* =============================================
-   BOTONES CTA (CALL TO ACTION)
-   ============================================= */
 .cta-button {
     background-color: var(--gold);
     color: var(--jet-black);
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 5px;
     font-weight: 700;
     font-size: 14px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    display: inline-block;
-    text-align: center;
-    border: 2px solid var(--gold);
-    margin-left: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
 }
 
 .cta-button:hover {
-    background-color: transparent;
-    color: var(--gold);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+    background-color: var(--cobalt-blue);
+    color: var(--pure-white);
 }
 
-/* =============================================
-   SECCIÓN HERO (PORTADA)
-   ============================================= */
+/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
-                url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     margin-top: 70px;
 }
 
@@ -168,9 +125,7 @@ header {
     color: var(--light-gray);
 }
 
-/* =============================================
-   SECCIÓN DE SERVICIOS
-   ============================================= */
+/* Services Section */
 .services {
     padding: 80px 0;
     background-color: var(--light-gray);
@@ -183,7 +138,6 @@ header {
     color: var(--jet-black);
 }
 
-/* Grid de tarjetas de servicios */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -217,7 +171,15 @@ header {
     margin-bottom: 15px;
 }
 
-/* Lista de características con check */
+.service-card p {
+    color: var(--jet-black);
+    margin-bottom: 20px;
+}
+
+.service-features {
+    margin-bottom: 20px;
+}
+
 .service-features li {
     margin-bottom: 8px;
     color: var(--jet-black);
@@ -233,9 +195,14 @@ header {
     left: 0;
 }
 
-/* =============================================
-   SECCIÓN "ABOUT" (NOSOTROS)
-   ============================================= */
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+/* About Section - Professional Version */
 .mission-vision {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -255,7 +222,39 @@ header {
     background: rgba(212, 175, 55, 0.1);
 }
 
-/* Valores de la empresa */
+.mv-icon {
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.mv-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.values-container {
+    margin: 60px 0;
+}
+
+.values-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--gold);
+    position: relative;
+}
+
+.values-title:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    margin: 15px auto 0;
+}
+
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -275,12 +274,79 @@ header {
     background: rgba(212, 175, 55, 0.1);
 }
 
-/* =============================================
-   SECCIÓN DE PROYECTOS
-   ============================================= */
+.value-card i {
+    font-size: 36px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.value-card h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--pure-white);
+}
+
+.team-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin: 80px 0;
+    background: rgba(212, 175, 55, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.team-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.team-content h3 {
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.expertise-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.expertise-areas span {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-highlight {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-image {
+        order: -1;
+    }
+}
+
+/* Projects Section */
 .projects {
     padding: 80px 0;
     background-color: #111;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .projects-grid {
@@ -298,25 +364,126 @@ header {
     transition: transform 0.3s;
 }
 
-/* Efecto hover en tarjetas de proyectos */
 .project-card:hover {
     transform: translateY(-5px);
+}
+
+.project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
 }
 
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
 
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(212, 175, 55, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
 .project-card:hover .project-overlay {
     opacity: 1;
 }
 
-/* =============================================
-   SECCIÓN DE TESTIMONIOS
-   ============================================= */
+.project-link {
+    color: var(--jet-black);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.project-link i {
+    margin-left: 8px;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.project-description {
+    color: var(--light-gray);
+    margin-bottom: 20px;
+}
+
+.project-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.project-feature {
+    display: flex;
+    align-items: center;
+    background-color: rgba(212, 175, 55, 0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.project-feature i {
+    color: var(--gold);
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.project-feature span {
+    font-size: 14px;
+}
+
+.project-tech {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.project-tech span:first-child {
+    color: var(--light-gray);
+}
+
+.tech-tag {
+    background-color: rgba(44, 100, 243, 0.1);
+    color: var(--cobalt-blue);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Testimonials Section */
 .testimonials {
     padding: 80px 0;
     background-color: var(--light-gray);
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--jet-black);
 }
 
 .testimonials-grid {
@@ -325,17 +492,77 @@ header {
     gap: 30px;
 }
 
-/* =============================================
-   SECCIÓN DE CONTACTO
-   ============================================= */
+.testimonial-card {
+    background-color: var(--pure-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card p {
+    color: var(--jet-black);
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    color: var(--jet-black);
+    margin-bottom: 5px;
+}
+
+.author-info p {
+    color: var(--jet-black);
+    font-style: normal;
+    font-size: 14px;
+}
+
+/* Contact Section */
 .contact {
     padding: 80px 0;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 30px;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-method i {
+    color: var(--gold);
+    font-size: 24px;
+    margin-right: 15px;
 }
 
 .contact-form input,
@@ -349,9 +576,27 @@ header {
     color: var(--pure-white);
 }
 
-/* =============================================
-   FOOTER (PIE DE PÁGINA)
-   ============================================= */
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button {
+    background-color: var(--gold);
+    color: var(--jet-black);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--cobalt-blue);
+    color: var(--pure-white);
+}
+
+/* Footer */
 footer {
     background-color: #111;
     padding: 50px 0 20px;
@@ -364,9 +609,73 @@ footer {
     margin-bottom: 30px;
 }
 
-/* =============================================
-   MODAL DE SERVICIOS
-   ============================================= */
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo .logo-text {
+    font-size: 20px;
+}
+
+.footer-logo p {
+    margin-top: 10px;
+    color: var(--light-gray);
+}
+
+.footer-links h3 {
+    color: var(--pure-white);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--gold);
+}
+
+.social-links {
+    display: flex;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 10px;
+    color: var(--pure-white);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: var(--gold);
+    color: var(--jet-black);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light-gray);
+    font-size: 14px;
+}
+
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -390,11 +699,244 @@ footer {
     position: relative;
 }
 
-/* =============================================
-   ESTILOS PARA MÓVILES (RESPONSIVE)
-   ============================================= */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--light-gray);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--gold);
+}
+
+.modal-header {
+    margin-bottom: 20px;
+}
+
+.modal-body {
+    margin-bottom: 30px;
+}
+
+.modal-footer {
+    text-align: right;
+}
+
+/* Responsive para móviles */
 @media (max-width: 768px) {
-    /* Header y navegación móvil */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 8px 0;
+    }
+    
+    .hero {
+        margin-top: 100px;
+        height: auto;
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .service-card {
+        margin-bottom: 30px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .values-list li {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-links {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+    }
+    
+    .cta-button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .project-content h3 {
+        font-size: 20px;
+    }
+    
+    .project-description {
+        font-size: 14px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+    }
+    
+    .contact-form button {
+        padding: 12px 24px;
+    }
+    
+    .about-text h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .values-list li {
+        margin-bottom: 25px;
+    }
+    
+    .values-list li strong {
+        font-size: 16px;
+    }
+    
+    .values-list li i {
+        font-size: 18px;
+    }
+}
+
+
+/* Estilos del header mejorados para móviles */
+header {
+    background-color: rgba(26, 26, 26, 0.95);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--gold);
+    backdrop-filter: blur(5px);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Botón de menú móvil */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--pure-white);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s;
+}
+
+.mobile-menu-toggle:hover {
+    color: var(--gold);
+}
+
+/* Navegación principal */
+.main-nav {
+    transition: all 0.3s ease-in-out;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    color: var(--pure-white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
+
+.main-nav ul li a:hover {
+    color: var(--gold);
+}
+
+.main-nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s;
+}
+
+.main-nav ul li a:hover:after {
+    width: 100%;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
     }
@@ -416,38 +958,126 @@ footer {
         right: 0;
     }
     
-    /* Ajustes generales de layout */
-    .mission-vision,
-    .contact-container,
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .main-nav ul {
+        flex-direction: column;
     }
     
-    /* Ajustes de tipografía */
-    .hero h1 {
-        font-size: 32px;
+    .main-nav ul li {
+        margin: 15px 0;
     }
     
-    /* Footer centrado en móviles */
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .main-nav ul li a {
+        font-size: 16px;
+        padding: 8px 0;
+        display: block;
+    }
+    
+    .main-nav ul li a.cta-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+    }
+    
+    /* Overlay cuando el menú está abierto */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+    
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
-@media (max-width: 480px) {
-    /* Ajustes adicionales para pantallas pequeñas */
-    .hero h1 {
-        font-size: 28px;
-    }
-    
-    .cta-button {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-}
-
-/* Clase para deshabilitar scroll cuando el menú está abierto */
 .no-scroll {
     overflow: hidden;
+}
+
+/* Estilos generales del botón CTA (para desktop) */
+.cta-button {
+    background-color: var(--gold);
+    color: var(--jet-black);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid var(--gold);
+    margin-left: 15px; /* Espacio respecto a otros items del menú */
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--gold);
+    text-decoration: none;
+}
+
+/* Estilos específicos para el botón en el nav de desktop */
+nav ul li a.cta-button {
+    margin-left: 15px;
+    padding: 8px 16px; /* Ajuste de padding para desktop */
+    border-radius: 4px;
+}
+
+/* Estilos para móvil (se mantienen tus estilos que ya funcionan) */
+@media (max-width: 768px) {
+    .main-nav ul li a.cta-button {
+        display: block;
+        margin: 25px 0 10px;
+        padding: 12px 20px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: var(--gold);
+        color: var(--jet-black);
+        font-weight: 700;
+        transition: all 0.3s ease;
+        border: 2px solid var(--gold);
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+    
+    .main-nav ul li a.cta-button:hover {
+        background-color: transparent;
+        color: var(--gold);
+    }
+    
+    .main-nav ul li:last-child {
+        margin-top: 30px;
+        padding-top: 15px;
+        position: relative;
+    }
+    
+    .main-nav ul li:last-child::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: rgba(212, 175, 55, 0.3);
+    }
+}
+
+/* Asegurar consistencia en todos los estados hover */
+.cta-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+.cta-button {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+nav ul li a.cta-button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
