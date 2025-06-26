@@ -1,7 +1,3 @@
-¡Absolutamente\! Añadiré esa información crucial al `README.md`.
-
-Aquí tienes la versión actualizada del `README.md` con el enlace de despliegue:
-
 # 🤖 Proyecto Turing Bots 🚀
 
 ¡Bienvenido al proyecto **Turing Bots**\! Este repositorio contiene el código fuente para el sitio web de una empresa dedicada a ofrecer soluciones de automatización mediante bots, incluyendo agentes de IA y chatbots programados para diversas plataformas como WhatsApp, Instagram y Facebook Messenger.
