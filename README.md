@@ -87,7 +87,7 @@ Este es un proyecto web estático y es muy fácil de configurar y visualizar:
 
 ## 📞 Contacto
 
-Para cualquier consulta o para cotizar un proyecto, por favor, utiliza la sección de contacto en la página principal o visita la página de [Turing Bots](https://www.google.com/search?q=https://turingbots.netlify.app/%23contact) para más detalles.
+Para cualquier consulta o para cotizar un proyecto, por favor, utiliza la sección de contacto en la página principal o visita la página de [Turing Bots](https://turingbots.netlify.app/#contact) para más detalles.
 
 -----
 
