@@ -1,10 +1,17 @@
-// Modal functionality
+// =============================================
+// FUNCIONALIDAD DEL MODAL DE SERVICIOS
+// =============================================
+
+/**
+ * Abre el modal y muestra el contenido del servicio seleccionado
+ * @param {string} service - Identificador del servicio a mostrar
+ */
 function openModal(service) {
     const modal = document.getElementById('serviceModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     
-    // Set content based on service
+    // Configurar contenido según el servicio seleccionado
     switch(service) {
         case 'whatsapp-bot':
             modalTitle.textContent = 'Bot para WhatsApp (sin IA)';
@@ -111,17 +118,21 @@ function openModal(service) {
             break;
     }
     
+    // Mostrar modal y deshabilitar scroll
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
+/**
+ * Cierra el modal de servicios
+ */
 function closeModal() {
     const modal = document.getElementById('serviceModal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-// Close modal when clicking outside
+// Cerrar modal al hacer clic fuera del contenido
 window.onclick = function(event) {
     const modal = document.getElementById('serviceModal');
     if (event.target == modal) {
@@ -129,54 +140,47 @@ window.onclick = function(event) {
     }
 }
 
-// Smooth scrolling for anchor links
+// =============================================
+// SCROLL SUAVE Y COMPORTAMIENTO DEL HEADER
+// =============================================
+
+// Configurar scroll suave para enlaces internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
     });
 });
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Sticky header on scroll
+// Hacer el header sticky y cambiar su opacidad al hacer scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
-    } else {
-        header.style.backgroundColor = 'rgba(26, 26, 26, 0.9)';
-    }
+    header.style.backgroundColor = window.scrollY > 100 
+        ? 'rgba(26, 26, 26, 0.95)' 
+        : 'rgba(26, 26, 26, 0.9)';
 });
 
-// Active link highlighting
+// =============================================
+// RESALTADO DE ENLACES ACTIVOS
+// =============================================
+
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav ul li a');
 
 window.addEventListener('scroll', function() {
     let current = '';
     
+    // Identificar la sección actual
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
         if (pageYOffset >= (sectionTop - 300)) {
             current = section.getAttribute('id');
         }
     });
     
+    // Resaltar enlace correspondiente
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').includes(current)) {
@@ -185,15 +189,18 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// FAQ Functionality
+// =============================================
+// FUNCIONALIDAD DE FAQ
+// =============================================
+
 document.addEventListener('DOMContentLoaded', function() {
-    // FAQ Toggle Functionality
+    // Alternar visibilidad de respuestas FAQ
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', function() {
             const answer = this.nextElementSibling;
             const icon = this.querySelector('i');
             
-            // Toggle answer visibility with smooth animation
+            // Mostrar/ocultar respuesta
             if (answer.style.maxHeight) {
                 answer.style.maxHeight = null;
                 answer.style.padding = '0 20px';
@@ -202,12 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 answer.style.maxHeight = answer.scrollHeight + 'px';
                 answer.style.padding = '20px';
                 icon.style.transform = 'rotate(180deg)';
-                
-                // Smooth scroll to the question
                 this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
             
-            // Close other answers in the same category
+            // Cerrar otras respuestas en la misma categoría
             const parentCategory = this.closest('.faq-category');
             parentCategory.querySelectorAll('.faq-answer').forEach(ans => {
                 if (ans !== answer) {
@@ -219,31 +224,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // FAQ Category Filter
+    // Filtro de categorías FAQ
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            // Update active button
+            // Actualizar botón activo
             document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             
-            // Show selected category and hide others
+            // Mostrar categoría seleccionada
             const category = this.getAttribute('data-category');
             document.querySelectorAll('.faq-category').forEach(cat => {
+                cat.style.display = cat.id === category ? 'block' : 'none';
                 if (cat.id === category) {
-                    cat.style.display = 'block';
-                    
-                    // Scroll to the category title
-                    setTimeout(() => {
-                        cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                } else {
-                    cat.style.display = 'none';
+                    setTimeout(() => cat.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
                 }
             });
         });
     });
     
-    // Open specific category from URL hash
+    // Abrir categoría específica desde el hash de la URL
     if (window.location.hash) {
         const hash = window.location.hash.substring(1);
         const validCategories = ['general', 'servicios', 'pagos', 'soporte'];
@@ -252,18 +251,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const btn = document.querySelector(`.category-btn[data-category="${hash}"]`);
             if (btn) btn.click();
             
-            // Scroll to the category after a short delay
             setTimeout(() => {
                 const element = document.getElementById(hash);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
             }, 300);
         }
     }
 });
 
-// Animación de números en la sección About
+// =============================================
+// ANIMACIÓN DE ESTADÍSTICAS
+// =============================================
+
+/**
+ * Anima los números en la sección "About"
+ */
 function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
     const speed = 200;
@@ -282,7 +284,7 @@ function animateStats() {
     });
 }
 
-// Lanzar la animación cuando la sección sea visible
+// Observar la sección "About" para activar la animación cuando sea visible
 const aboutSection = document.querySelector('.about');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -295,16 +297,20 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(aboutSection);
 
-// Menú móvil - Versión universal
+// =============================================
+// MENÚ MÓVIL
+// =============================================
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navElement = document.querySelector('nav'); // Selecciona el elemento nav directamente
+    const navElement = document.querySelector('nav');
     const navOverlay = document.createElement('div');
     
     navOverlay.className = 'nav-overlay';
     document.body.appendChild(navOverlay);
     
     if (menuToggle && navElement) {
+        // Alternar menú móvil
         menuToggle.addEventListener('click', function() {
             navElement.classList.toggle('active');
             navOverlay.classList.toggle('active');
@@ -312,13 +318,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Cambiar icono
             const icon = this.querySelector('i');
-            if (navElement.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
         
         // Cerrar menú al hacer clic en overlay
@@ -330,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.querySelector('i').classList.add('fa-bars');
         });
         
-        // Cerrar menú al hacer clic en un enlace
+        // Cerrar menú al seleccionar un enlace (solo en móvil)
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
